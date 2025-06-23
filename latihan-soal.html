@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Soal IPA SMP</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; background-color: #f4f4f4; }
+    .soal { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 1px 1px 5px #ccc; }
+    button { padding: 10px 20px; background: #28a745; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #218838; }
+    .hasil { font-size: 1.2em; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <h2>Latihan Soal - IPA Kelas 7 oleh : Torus Manuntun Nababan, S.Pd.M.Pd</h2>
+
+  <form id="quizForm">
+    <div class="soal">
+      <p>1. Alat ukur panjang yang paling tepat digunakan mengukur ketebalan buku adalah...</p>
+      <input type="radio" name="q1" value="a"> a. Meteran<br>
+      <input type="radio" name="q1" value="b"> b. Penggaris<br>
+      <input type="radio" name="q1" value="c"> c. Jangka sorong<br>
+      <input type="radio" name="q1" value="d"> d. Roll meter<br>
+    </div>
+
+    <div class="soal">
+      <p>2. Satuan SI dari massa adalah...</p>
+      <input type="radio" name="q2" value="a"> a. Gram<br>
+      <input type="radio" name="q2" value="b"> b. Ons<br>
+      <input type="radio" name="q2" value="c"> c. Pon<br>
+      <input type="radio" name="q2" value="d"> d. Kilogram<br>
+    </div>
+
+    <button type="button" onclick="hitungSkor()">Lihat Skor</button>
+  </form>
+
+  <div class="hasil" id="hasilSkor"></div>
+
+  <script>
+    function hitungSkor() {
+      let skor = 0;
+      const jawaban = {
+        q1: "c",
+        q2: "d"
+      };
+
+      for (let key in jawaban) {
+        const pilihan = document.querySelector(`input[name="${key}"]:checked`);
+        if (pilihan && pilihan.value === jawaban[key]) {
+          skor += 1;
+        }
+      }
+
+      const total = Object.keys(jawaban).length;
+      document.getElementById("hasilSkor").innerHTML = `Skor Anda: ${skor} dari ${total}`;
+    }
+  </script>
+
+</body>
+</html>
